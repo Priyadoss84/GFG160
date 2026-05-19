@@ -1,0 +1,22 @@
+class Solution {
+  public:
+    int missingNumber(vector<int> &arr) {
+        // code here
+        int n=arr.size();
+        set<int> s;
+        for(auto x:arr)
+        {
+            if(x>=1)
+             s.insert(x);
+        }
+        int i=1;
+        for(auto it=s.begin();it!=s.end();it++)
+        {
+            //cout<<*it<<"="<<i<<endl;
+            if(*it!=i)
+                return i;
+            i++;
+        }
+        return i;
+    }
+};
