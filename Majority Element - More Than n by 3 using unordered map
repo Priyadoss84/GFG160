@@ -1,0 +1,25 @@
+class Solution {
+  public:
+    vector<int> findMajority(vector<int>& arr) {
+        // Code here
+        
+        int n=arr.size();
+        vector<int> res;
+        unordered_map<int,int> fq;
+        for(auto x:arr)
+        {
+            fq[x]++;
+        }
+        for(auto it : fq)
+        {
+            int ele=it.first;
+            int cnt=it.second;
+            if(cnt > n/3)
+            {
+                res.push_back(ele);
+            }
+        }
+        sort(res.begin(),res.end());
+        return res;
+    }
+};
